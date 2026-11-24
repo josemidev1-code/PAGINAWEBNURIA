@@ -991,7 +991,12 @@ body { text-wrap:pretty; }
 .form-optional[open] > .field { margin-top:20px; }
 .secondary-tools { margin-top:24px; font-size:.85rem; }
 .secondary-tools a { text-decoration:underline; text-underline-offset:4px; }
-.aux-back { padding-top:calc(var(--header) + 32px); padding-bottom:24px; }
+/* página de ayudas: el azul empieza bajo la cabecera, como en la portada */
+.aux-tools .tools { padding-top: calc(var(--header) + clamp(40px, 6vw, 72px)); }
+.aux-back-link { display: inline-flex; align-items: center; gap: 0.75em; margin-bottom: clamp(36px, 5vw, 60px); font-size: 0.74rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; color: rgba(255, 255, 255, 0.68); transition: color 250ms ease; }
+.aux-back-link .i { width: 1.1em; height: 1.1em; transform: scaleX(-1); transition: transform 300ms var(--ease-out); }
+.aux-back-link:hover, .aux-back-link:focus-visible { color: var(--white); }
+.aux-back-link:hover .i { transform: scaleX(-1) translateX(4px); }
 .aux-tools .tools { margin-top:0; }
 @media(max-width:1180px) { .booking-grid { grid-template-columns:minmax(0,1fr); } .booking-form { max-width:720px; width:100%; } }
 @media(max-width:900px) {
@@ -1007,3 +1012,6 @@ body { text-wrap:pretty; }
 
 /* Evita fondos metálicos detrás de los titulares en paneles oscuros. */
 .section-title em,.is-navy .section-title em { background:none !important; -webkit-text-fill-color:currentColor; }
+
+/* página de ayudas: el marco empieza bajo la cabecera para no chocar con ella */
+.aux-tools .tools::after { top: calc(var(--header) + clamp(4px, 0.8vw, 12px)); }
