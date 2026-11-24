@@ -510,24 +510,27 @@ body::after {
   .js .hp-empty { scale: 1.1; }
   /* 150 %: así la tilde de la Á tampoco asoma por abajo antes de subir */
   .js .name-line .ch { transform: translateY(150%); }
+  /* hasta que main.js parte el nombre en letras, no se ve (evita el parpadeo) */
+  .js .name-line [data-split-name] { visibility: hidden; }
+  .js .name-line .ch { visibility: visible; }
   .js .hero-role > span:first-child { letter-spacing: 0.1em; opacity: 0; }
   .js .hp-frame rect { stroke-dasharray: 1; stroke-dashoffset: 1; }
   .js [data-hero] { opacity: 0; transform: translateY(20px); filter: blur(6px); }
 
-  .is-loaded .hero-portrait { clip-path: inset(0 0 0 0); transition: clip-path 1600ms var(--ease-in-out) 100ms; }
-  .is-loaded .hp-photo img { scale: 1.06; transition: scale 2800ms var(--ease-out) 200ms, opacity 800ms ease; }
-  .is-loaded .hp-empty { scale: 1; transition: scale 2800ms var(--ease-out) 200ms; }
-  .is-loaded .name-line .ch { transform: none; transition: transform 1100ms var(--ease-out); transition-delay: calc(450ms + var(--ci, 0) * 55ms); }
-  .is-loaded .hero-role > span:first-child { letter-spacing: 0.42em; opacity: 1; transition: letter-spacing 1600ms var(--ease-out) 1000ms, opacity 900ms ease 1000ms; }
-  .is-loaded .hp-frame rect { stroke-dashoffset: 0; transition: stroke-dashoffset 2200ms var(--ease-in-out) 1100ms; }
-  .is-loaded [data-hero] { opacity: 1; transform: none; filter: none; transition: opacity 900ms var(--ease-out), transform 1100ms var(--ease-out), filter 900ms var(--ease-out); }
-  .is-loaded [data-hero="1"] { transition-delay: 900ms; }
-  .is-loaded [data-hero="2"] { transition-delay: 1150ms; }
-  .is-loaded [data-hero="3"] { transition-delay: 1350ms; }
-  .is-loaded [data-hero="4"] { transition-delay: 1500ms; }
-  .is-loaded [data-hero="5"] { transition-delay: 1700ms; }
-  .is-loaded [data-hero="6"] { transition-delay: 2000ms; }
-  .is-loaded .hero .t-bold { animation: sheen 9s cubic-bezier(0.45, 0, 0.2, 1) 2.2s infinite; }
+  .is-loaded .hero-portrait { clip-path: inset(0 0 0 0); transition: clip-path 1200ms var(--ease-in-out); }
+  .is-loaded .hp-photo img { scale: 1.06; transition: scale 2400ms var(--ease-out), opacity 800ms ease; }
+  .is-loaded .hp-empty { scale: 1; transition: scale 2400ms var(--ease-out); }
+  .is-loaded .name-line .ch { transform: none; transition: transform 900ms var(--ease-out); transition-delay: calc(100ms + var(--ci, 0) * 45ms); }
+  .is-loaded .hero-role > span:first-child { letter-spacing: 0.42em; opacity: 1; transition: letter-spacing 1400ms var(--ease-out) 300ms, opacity 700ms ease 300ms; }
+  .is-loaded .hp-frame rect { stroke-dashoffset: 0; transition: stroke-dashoffset 1800ms var(--ease-in-out) 400ms; }
+  .is-loaded [data-hero] { opacity: 1; transform: none; filter: none; transition: opacity 700ms var(--ease-out), transform 800ms var(--ease-out), filter 700ms var(--ease-out); }
+  .is-loaded [data-hero="1"] { transition-delay: 200ms; }
+  .is-loaded [data-hero="2"] { transition-delay: 300ms; }
+  .is-loaded [data-hero="3"] { transition-delay: 400ms; }
+  .is-loaded [data-hero="4"] { transition-delay: 500ms; }
+  .is-loaded [data-hero="5"] { transition-delay: 600ms; }
+  .is-loaded [data-hero="6"] { transition-delay: 750ms; }
+  .is-loaded .hero .t-bold { animation: sheen 9s cubic-bezier(0.45, 0, 0.2, 1) 1.4s infinite; }
 
   /* el acero y la plata de los títulos brillan al aparecer y de vez en cuando */
   .section-title em { animation: sheen 10s cubic-bezier(0.45, 0, 0.2, 1) infinite; animation-play-state: paused; }

@@ -944,7 +944,7 @@
      --------------------------------------------------------- */
   const start = () => requestAnimationFrame(() => requestAnimationFrame(() => root.classList.add('is-loaded')));
   if (document.fonts && document.fonts.ready) {
-    Promise.race([document.fonts.ready, new Promise((r) => setTimeout(r, 700))]).then(start);
+    Promise.race([document.fonts.ready, new Promise((r) => setTimeout(r, 250))]).then(start);
   } else {
     start();
   }
@@ -972,7 +972,7 @@
     if (y < lastY - 4) header.classList.remove('is-hidden');
     if (mobileBar) mobileBar.classList.toggle('is-shown', y > heroH * 0.55);
     // el retrato de la portada se desliza un poco más despacio que la página
-    if (!reduceMotion.matches && y < heroH) hero.style.setProperty('--hy', (y * 0.18).toFixed(1) + 'px');
+    if (hero && !reduceMotion.matches && y < heroH) hero.style.setProperty('--hy', (y * 0.18).toFixed(1) + 'px');
     // la estatua de la Justicia sube un poco más despacio: parece que flota en su foco
     if (justiceImg && !reduceMotion.matches) {
       const r = justiceImg.parentElement.getBoundingClientRect();
